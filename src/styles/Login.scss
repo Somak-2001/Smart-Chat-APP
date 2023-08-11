@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+
+.container{
+    background-color: aquamarine;
+    height: 100vh;
+    background-image: url('../../public/images/Background.jpeg');
+
+    .form-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border-radius: 0.75rem;
+        background-color: aliceblue;
+        width: 30%;
+        filter: drop-shadow(0 25px 25px rgb(0 0 0 / 0.15));
+        position: relative;
+        top: 20%;
+        left: 35%;
+        padding: 5px;
+
+        .title{
+            margin: 30px;
+            h1{
+                margin-bottom:4px;
+                font-family: 'Lobster', cursive;
+                font-size: 2.25rem; 
+                line-height: 2.5rem;
+                filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
+            }
+            p{
+                font-size: 3rem; /* 48px */
+                line-height: 1;
+                font-style: italic;
+                margin-left: 35%;
+            }
+        }
+
+        .form-body{
+            display: flex;
+            flex-direction: column;
+            margin-top:10px;
+            margin-bottom: 40px;
+
+            input{
+                padding: 15px;
+                margin: 7px 0px;
+                border: none;
+                border-bottom: 2px solid rgb(100 116 139);
+                border-radius: 0.375rem;
+            }
+
+            input:focus{
+                outline: none;
+                padding: 20px;
+                filter: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07)) drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));
+                border-radius: 0.375rem;
+            }
+
+            .login-button{
+                cursor: pointer;
+                padding: 3px;
+                background-color:orange;
+                margin-top: 10%;
+                border-radius: 0.125rem;
+                filter: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07)) drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));
+            }
+        }
+
+        .form-footer{
+            text-align: center;
+            margin-bottom: 10px;
+        }
+    }
+}

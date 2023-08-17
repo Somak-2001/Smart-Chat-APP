@@ -1,0 +1,273 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+.home {
+    height: 100vh;
+    background-color:aquamarine;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .main_container {
+        width: calc(100vw - 15vw);
+        height: calc(100vh - 15vh);
+        // border: 2px solid white;
+        border-radius: 0.375rem;
+        display: flex;
+        flex-direction: row;
+        overflow: hidden;
+        filter: drop-shadow(0 25px 25px rgb(0 0 0 / 0.15));
+
+        .sidebar_container {
+            flex: 1;
+            background-color: rgb(71 85 105);
+
+            .navbar_conatiner {
+                padding-top: 20px;
+                padding-left: 10px;
+                padding-right: 10px;
+                background-color: rgb(40, 68, 68);
+                height: 7%;
+
+                .logo {
+                    font-family: 'Lobster', cursive;
+                    font-size: 1.5rem;
+                    /* 24px */
+                    line-height: 2rem;
+                    /* 32px */
+                }
+
+                .profile {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    color: white;
+                    cursor: pointer;
+
+                    .user {
+                        display: flex;
+                        flex-direction: row;
+
+                        .user_name {
+                            margin: auto 5px;
+                        }
+
+                        .user_image {
+                            margin-top: 2px;
+                            border-radius: 50%;
+                            // padding: 5px;
+                            width: 24px;
+                            height: 24px;
+                            object-fit: cover;
+                        }
+
+                        .log_out_button {
+                            background-color: aliceblue;
+                            padding: 2px;
+                            border: none;
+                            cursor: pointer;
+                            border-radius: 0.125rem;
+                            filter: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07)) drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));
+                        }
+                    }
+                }
+            }
+
+            .search_container {
+                // padding: 15px;
+                border: none;
+                border-bottom: 2px solid rgb(156 163 175);
+                filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
+
+                .search_bar {
+                    background-color: transparent;
+                    border: none;
+                    outline: none;
+                    padding: 15px;
+                    color: white;
+                    font-size: 1rem;
+                    /* 16px */
+                    line-height: 1.5rem;
+                    /* 24px */
+                }
+
+                &::placeholder {
+                    color: lightgray;
+                }
+
+                .find_user {
+                    height: 10%;
+                    display: flex;
+                    align-items: center;
+                    color: aliceblue;
+                    cursor: pointer;
+                    padding: 6px 15px;
+                    font-weight: 700;
+                    font-size: 1rem; /* 16px */
+                    line-height: 1.5rem; /* 24px */
+
+                    .img_find_user {
+                        width: 55px;
+                        height: 55px;
+                        border-radius: 50%;
+                        object-fit: cover;
+                        margin-right: 8px;
+                    }
+                }
+
+                .find_user:hover {
+                    background-color: rgb(100 116 139);
+                }
+            }
+
+            .chats {
+                .find_user {
+                    height: 10%;
+                    display: flex;
+                    align-items: center;
+                    color: aliceblue;
+                    cursor: pointer;
+                    padding: 6px 15px;
+
+                    .img_find_user {
+                        width: 55px;
+                        height: 55px;
+                        border-radius: 50%;
+                        object-fit: cover;
+                        margin-right: 8px;
+                    }
+
+                    .user_info{
+                        .name{
+                            font-weight: 700;
+                            font-size: 1rem; /* 16px */
+                            line-height: 1.5rem; /* 24px */
+                        }
+                        .message{
+                            font-weight: 100;
+                            font-size: 0.875rem; /* 14px */
+                            line-height: 1.25rem; /* 20px */
+                        }
+                    }
+                }
+
+                .find_user:hover {
+                    background-color: rgb(100 116 139);
+                }
+            }
+        }
+
+        .chat_container {
+            flex: 2;
+
+            .chatInfo{
+                display: flex;
+                justify-content: space-between;
+                padding-top: 20px;
+                padding-left: 10px;
+                padding-right: 10px;
+                height: 7%;
+                background-color: rgb(21 94 117);
+                span{
+                    cursor: pointer;
+                    font-weight: 700;
+                    color: aliceblue;
+                }
+
+                .chatIcons{
+                    display: flex;
+                    gap: 20px;
+                    cursor: pointer;
+                    color: aliceblue;
+                }
+            }
+
+            .message_container{
+                height: calc(100% - 20%);
+                background-color: antiquewhite;
+                overflow-y:scroll;
+
+                .message{
+                    display: flex;
+                    margin-bottom: 25px;
+                    padding: 10px;
+
+                    .messageInfo{
+                        display: flex;
+                        flex-direction: column;
+                        img{
+                            width: 30px;
+                            height: 30px;
+                            object-fit: cover;
+                            border-radius: 50%;
+                        }
+                        p{
+                            font-size: 0.75rem; /* 12px */
+                            line-height: 1rem; /* 16px */
+                        }
+                    }
+
+                    .messageContent{
+                        padding: 5px;
+                        margin: 5px 10px;
+                        background-color: aliceblue;
+                        border: 1px solid white;
+                        border-radius: 0px 10px 10px 10px;
+                        filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
+                        span{
+                            font-size: 1.125rem; /* 18px */
+                            line-height: 1.75rem; /* 28px */
+                        }
+                        img{
+                            width: 35px;
+                            height: 20px;
+                        }
+                    }
+                    &.owner{
+                        display: flex;
+                        flex-direction: row-reverse;
+                    }
+                }
+            }
+            .text{
+                background-color: aliceblue;
+                display: flex;
+                justify-content: space-between;
+                input{
+                    background-color: aliceblue;
+                    padding: 18px;
+                    width: 70%;
+                    border: none;
+                    outline: none;
+                    font-size: 1.125rem; /* 18px */
+                    line-height: 1.75rem; /* 28px */
+                }
+
+                &::placeholder{
+                    color: lightgray;
+                }
+
+                .doc{
+                    display: flex;
+                    gap: 5px;
+                    cursor: pointer;
+                    padding: 10px;
+ 
+                    label{
+                        cursor: pointer;
+                    }
+
+                    button{
+                        width: 50px;
+                        height: 30px;
+                        cursor: pointer;
+                        border: none;
+                        outline: none;
+                        filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
+                        border-radius: 0.375rem;
+                        background-color: #008CBA;
+                    }
+                }
+            }
+        }
+    }
+}

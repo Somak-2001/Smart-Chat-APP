@@ -20,10 +20,11 @@ const Register = () => {
                     <p>New User Register</p>
                 </div>
                 <form className='form-body' onSubmit={handleRegister}>
-                    <input type='text'   value={name} onChange={e=> setName(e.target.value)} placeholder='Enter your name' />
-                    <input type='email'  value={email} onChange={e=> setEmail(e.target.value)} placeholder='Enter email' />
-                    <input type='password' value={password} onChange={e=> setPassword(e.target.value)} placeholder='Set Password' />
+                    <input type='text'   value={name} onChange={e=> setName(e.target.value)} placeholder='Enter your name' required/>
+                    <input type='email'  value={email} onChange={e=> setEmail(e.target.value)} placeholder='Enter email' required/>
+                    <input type='password' value={password} onChange={e=> setPassword(e.target.value)} placeholder='Set Password' required/>
                     <input type='file' id='file' className='file-input' value={file} onChange={e=> setFile(e.target.value)} />
+
                     <label htmlFor='file' className='avatar-container'>
                         <AiOutlineUserAdd className='avatar'/>
                         <span className='avatar-text'>Add an Avatar</span>

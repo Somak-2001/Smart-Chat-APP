@@ -1,10 +1,19 @@
 import React from 'react'
-import Login from './Login';
+// import Login from './Login';
+import Sidebar from '../components/Sidebar';
+import Chat from '../components/Chat';
+import '../styles/Home.scss';
 const Home = () => {
   return (
-    <div>
-      <Login/>
+    <>
+    {/* <Login/> */}
+    <div className='home'>
+      <div className='main_container'>
+        <Sidebar />
+        <Chat />
+      </div>
     </div>
+    </>
   )
 }
 

@@ -2,7 +2,7 @@
 
 .home {
     height: 100vh;
-    background-color:aquamarine;
+    background-color: aquamarine;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -102,8 +102,10 @@
                     cursor: pointer;
                     padding: 6px 15px;
                     font-weight: 700;
-                    font-size: 1rem; /* 16px */
-                    line-height: 1.5rem; /* 24px */
+                    font-size: 1rem;
+                    /* 16px */
+                    line-height: 1.5rem;
+                    /* 24px */
 
                     .img_find_user {
                         width: 55px;
@@ -136,16 +138,21 @@
                         margin-right: 8px;
                     }
 
-                    .user_info{
-                        .name{
+                    .user_info {
+                        .name {
                             font-weight: 700;
-                            font-size: 1rem; /* 16px */
-                            line-height: 1.5rem; /* 24px */
+                            font-size: 1rem;
+                            /* 16px */
+                            line-height: 1.5rem;
+                            /* 24px */
                         }
-                        .message{
+
+                        .message {
                             font-weight: 100;
-                            font-size: 0.875rem; /* 14px */
-                            line-height: 1.25rem; /* 20px */
+                            font-size: 0.875rem;
+                            /* 14px */
+                            line-height: 1.25rem;
+                            /* 20px */
                         }
                     }
                 }
@@ -159,7 +166,18 @@
         .chat_container {
             flex: 2;
 
-            .chatInfo{
+            .chatInfo {
+                .contactInfo{
+                    display: flex;
+                    flex-direction: row;
+                    gap: 10px;
+                    img{
+                        height: 40px;
+                        width: 40px;
+                        object-fit: cover;
+                        border-radius: 50%;
+                    }
+                }
                 display: flex;
                 justify-content: space-between;
                 padding-top: 20px;
@@ -167,13 +185,14 @@
                 padding-right: 10px;
                 height: 7%;
                 background-color: rgb(21 94 117);
-                span{
+
+                span {
                     cursor: pointer;
                     font-weight: 700;
                     color: aliceblue;
                 }
 
-                .chatIcons{
+                .chatIcons {
                     display: flex;
                     gap: 20px;
                     cursor: pointer;
@@ -181,82 +200,97 @@
                 }
             }
 
-            .message_container{
+            .message_container {
                 height: calc(100% - 20%);
                 background-color: antiquewhite;
-                overflow-y:scroll;
+                overflow-y: scroll;
 
-                .message{
+                .message {
                     display: flex;
                     margin-bottom: 25px;
                     padding: 10px;
 
-                    .messageInfo{
+                    .messageInfo {
                         display: flex;
                         flex-direction: column;
-                        img{
+
+                        img {
                             width: 30px;
                             height: 30px;
                             object-fit: cover;
                             border-radius: 50%;
                         }
-                        p{
-                            font-size: 0.75rem; /* 12px */
-                            line-height: 1rem; /* 16px */
+
+                        p {
+                            font-size: 0.75rem;
+                            /* 12px */
+                            line-height: 1rem;
+                            /* 16px */
                         }
                     }
 
-                    .messageContent{
-                        padding: 5px;
-                        margin: 5px 10px;
-                        background-color: aliceblue;
-                        border: 1px solid white;
-                        border-radius: 0px 10px 10px 10px;
-                        filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
-                        span{
-                            font-size: 1.125rem; /* 18px */
-                            line-height: 1.75rem; /* 28px */
+                    .messageContent {
+                        display: flex;
+                        flex-direction: column;
+                        span {
+                            padding: 5px;
+                            margin: 5px 10px;
+                            background-color: aliceblue;
+                            border: 1px solid white;
+                            border-radius: 0px 10px 10px 10px;
+                            filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
+                            font-size: 1.125rem;
+                            /* 18px */
+                            line-height: 1.75rem;
+                            /* 28px */
                         }
-                        img{
-                            width: 35px;
-                            height: 20px;
+
+                        img {
+                            width: 150px;
+                            height: 200px;
+                            object-fit: cover;
                         }
                     }
-                    &.owner{
+
+                    &.owner {
                         display: flex;
                         flex-direction: row-reverse;
                     }
                 }
             }
-            .text{
+
+            .text {
                 background-color: aliceblue;
                 display: flex;
                 justify-content: space-between;
-                input{
+
+                input {
                     background-color: aliceblue;
                     padding: 18px;
                     width: 70%;
                     border: none;
                     outline: none;
-                    font-size: 1.125rem; /* 18px */
-                    line-height: 1.75rem; /* 28px */
+                    font-size: 1.125rem;
+                    /* 18px */
+                    line-height: 1.75rem;
+                    /* 28px */
                 }
 
-                &::placeholder{
+                &::placeholder {
                     color: lightgray;
                 }
 
-                .doc{
+                .doc {
                     display: flex;
                     gap: 5px;
                     cursor: pointer;
                     padding: 10px;
- 
-                    label{
+
+                    label {
                         cursor: pointer;
                     }
 
-                    button{
+                    button {
                         width: 50px;
                         height: 30px;
                         cursor: pointer;

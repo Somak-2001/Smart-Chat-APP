@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from '../images/prf.jpg'
 const Message = () => {
   return (
     <div className='message owner'>
@@ -8,7 +9,7 @@ const Message = () => {
       </div>
       <div className='messageContent'>
         <span>Good morning</span>
-        {/* <img src='../../public/images/OIP (2).jpeg' alt='content pic'></img> */}
+        <img src={Image} alt='content pic'></img>
       </div>
     </div>
   )

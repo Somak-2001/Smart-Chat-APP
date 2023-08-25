@@ -1,14 +1,18 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
-// const authRoutes = require("./routes/auth");
-// const messageRoutes = require("./routes/messages");
+const userRoutes = require("./routes/userRoute");
+
 const app = express();
 const socket = require("socket.io");
 require('dotenv').config()
 
 app.use(cors());
 app.use(express.json());
+
+
+// '/api/auth' is the static path, which will redirect to userRoutes
+app.use("/api/auth",userRoutes);
 
 mongoose
   .connect(process.env.MONGODB_URL, {

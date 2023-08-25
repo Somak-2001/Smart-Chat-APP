@@ -1,13 +1,60 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import '../styles/Login.scss';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { loginRoute } from '../utils/APIRoutes';
+import axios from 'axios';
+
 const Login = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const currentUser = 
+  useEffect(() => {
+    if (localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)) {
+      navigate("/");
+    }
+  }, []);
 
-  const handleLogIn=(e)=>{
+  const toastOptions = {
+    position: "bottom-right",
+    autoClose: 8000,
+    pauseOnHover: true,
+    draggable: true,
+    theme: "dark",
+  };
+
+  const validateForm = () => {
+    if (email === "") {
+      toast.error("Email and Password is required.", toastOptions);
+      return false;
+    } else if (password === "") {
+      toast.error("Email and Password is required.", toastOptions);
+      return false;
+    }
+    return true;
+  };
+
+  const handleLogIn= async (e) => {
     e.preventDefault();
+    if (validateForm()) {
+      const { data } = await axios.post(loginRoute, {
+        email,
+        password,
+      });
+      if (data.status === false) {
+        toast.error(data.msg, toastOptions);
+      }
+      if (data.status === true) {
+        localStorage.setItem(
+          process.env.REACT_APP_LOCALHOST_KEY,
+          JSON.stringify(data.user)
+        );
+        navigate("/");
+      }
+    }
   }
   return (
     <div className='container'>

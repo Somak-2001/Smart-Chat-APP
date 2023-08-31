@@ -11,7 +11,7 @@ const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const currentUser = 
+  // const currentUser = 
   useEffect(() => {
     if (localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)) {
       navigate("/");
@@ -40,10 +40,14 @@ const Login = () => {
   const handleLogIn= async (e) => {
     e.preventDefault();
     if (validateForm()) {
+
+      //Sending input fields to backend api route
       const { data } = await axios.post(loginRoute, {
         email,
         password,
       });
+
+      //Checking the result status returned from back-end
       if (data.status === false) {
         toast.error(data.msg, toastOptions);
       }

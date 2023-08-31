@@ -59,15 +59,17 @@ const Register = () => {
 
     const handleRegister = async (e) => {
         e.preventDefault();
-        if(handleValidation){
-            console.log(registerRoute);
+        const valid = handleValidation();
+        if(valid){
+            //Sending input fields to backend api route
             const { data } = await axios.post(registerRoute, {
                 name,
                 email,
                 password,
                 profileImage: file,
             })
-
+            
+            //Checking the result status returned from back-end
             if (data.status === false) {
               toast.error(data.msg, toastOptions);
             }

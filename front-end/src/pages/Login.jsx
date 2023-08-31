@@ -2,8 +2,8 @@ import React, { useEffect } from 'react'
 import '../styles/Login.scss';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-hot-toast";
+// import "react-toastify/dist/ReactToastify.css";
 import { loginRoute } from '../utils/APIRoutes';
 import axios from 'axios';
 
@@ -13,25 +13,25 @@ const Login = () => {
   const [password, setPassword] = useState('');
   // const currentUser = 
   useEffect(() => {
-    if (localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)) {
+    if (JSON.parse(localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY))) {
       navigate("/");
     }
   }, []);
 
-  const toastOptions = {
-    position: "bottom-right",
-    autoClose: 8000,
-    pauseOnHover: true,
-    draggable: true,
-    theme: "system",
-  };
+  // const toastOptions = {
+  //   position: "bottom-right",
+  //   autoClose: 8000,
+  //   pauseOnHover: true,
+  //   draggable: true,
+  //   theme: "system",
+  // };
 
   const validateForm = () => {
     if (email === "") {
-      toast.error("Email and Password is required.", toastOptions);
+      toast.error("Email and Password is required.");
       return false;
     } else if (password === "") {
-      toast.error("Email and Password is required.", toastOptions);
+      toast.error("Email and Password is required.");
       return false;
     }
     return true;
@@ -49,14 +49,17 @@ const Login = () => {
 
       //Checking the result status returned from back-end
       if (data.status === false) {
-        toast.error(data.msg, toastOptions);
+        toast.error(data.msg);
       }
       if (data.status === true) {
         localStorage.setItem(
           process.env.REACT_APP_LOCALHOST_KEY,
           JSON.stringify(data.user)
         );
-        navigate("/");
+        toast.success("Logged in");
+        setTimeout(()=>{
+          navigate("/");
+        },1000);
       }
     }
   }

@@ -4,8 +4,8 @@ import { useState } from 'react';
 import { Link , useNavigate } from 'react-router-dom';
 import { AiOutlineUserAdd } from 'react-icons/ai';
 import { registerRoute } from '../utils/APIRoutes';
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-hot-toast";
+// import "react-toastify/dist/ReactToastify.css";
 import axios from 'axios';
 
 const Register = () => {
@@ -21,36 +21,29 @@ const Register = () => {
       }
     }, []);
     
-    const toastOptions = {
-        position: "bottom-right",
-        autoClose: 8000,
-        pauseOnHover: true,
-        draggable: true,
-        theme: "dark",
-    };
+    // const  = {
+    //     position: "bottom-right",
+    //     autoClose: 8000,
+    //     pauseOnHover: true,
+    //     draggable: true,
+    //     theme: "dark",
+    // };
 
 
     const handleValidation = () => {
         if (password !== confirmpassword) {
           toast.error(
-            "Password and confirm password should be same.",
-            toastOptions
+            "Password and confirm password should be same."            
           );
           return false;
         } else if (name.length < 3) {
-          toast.error(
-            "Username should be greater than 3 characters.",
-            toastOptions
-          );
+          toast.error("Username should be greater than 3 characters.");
           return false;
         } else if (password.length < 8) {
-          toast.error(
-            "Password should be equal or greater than 8 characters.",
-            toastOptions
-          );
+          toast.error("Password should be equal or greater than 8 characters.");
           return false;
         } else if (email === "") {
-          toast.error("Email is required.", toastOptions);
+          toast.error("Email is required.");
           return false;
         }
     
@@ -71,13 +64,14 @@ const Register = () => {
             
             //Checking the result status returned from back-end
             if (data.status === false) {
-              toast.error(data.msg, toastOptions);
+              toast.error(data.msg);
             }
             if (data.status === true) {
               localStorage.setItem(
                 process.env.REACT_APP_LOCALHOST_KEY,
                 JSON.stringify(data.user)
               );
+              toast.success("Registered");
               navigate("/");
             }
         }

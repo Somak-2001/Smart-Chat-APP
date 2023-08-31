@@ -10,17 +10,16 @@ const Home = () => {
   const socket = useRef();
   const [contacts, setContacts] = useState([]);
   const [currentChat, setCurrentChat] = useState(null);
-  const [ currentUser, setCurrentUser ] =useState(null);
+  const [ currentUser, setCurrentUser ] = useState(null);
 
   useEffect(() => {
     const unsub = async () => {
-      if (!localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)) {
+      const user = await JSON.parse(localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY));
+      if (!user) {
         navigate('/login');
       }
       else {
-        setCurrentUser(
-          await JSON.parse(localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY))
-        );
+        setCurrentUser(user);
       }
     }
     return () => {

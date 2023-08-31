@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import DemoPrf from '../assets/demoprf.png';
+import { toast } from 'react-hot-toast';
 const Navbar = () => {
   const navigate = useNavigate();
   const [currentUser,setCurrentUser] = useState(null);
@@ -18,7 +19,8 @@ const Navbar = () => {
   },[]);
   const Signout = ()=>{
     setCurrentUser(null);
-    localStorage.clear();
+    localStorage.removeItem(process.env.REACT_APP_LOCALHOST_KEY);
+    toast.success("Log Out");
     navigate('/login');
   }
 

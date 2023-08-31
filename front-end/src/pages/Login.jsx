@@ -23,7 +23,7 @@ const Login = () => {
     autoClose: 8000,
     pauseOnHover: true,
     draggable: true,
-    theme: "dark",
+    theme: "system",
   };
 
   const validateForm = () => {

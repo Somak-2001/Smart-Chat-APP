@@ -8,6 +8,7 @@ import { Socket, io } from 'socket.io-client';
 import { useNavigate } from 'react-router-dom';
 import { host } from '../utils/APIRoutes';
 import { allUsersRoute } from '../utils/APIRoutes';
+import Demoprf from '../assets/demoprf.png';
 import axios from 'axios';
 const Chat = () => {
   const [currentUser, setCurrentUser] = useState(null);
@@ -62,7 +63,16 @@ const Chat = () => {
     <div className='chat_container'>
       <div className='chatInfo'>
       <div className='contactInfo'>
+      {
+        (currentUser?.isprofileImageSet) && 
       <img src='https://th.bing.com/th/id/OIP.2svrXiC54e3ETDqB15I74wHaDt?w=329&h=174&c=7&r=0&o=5&dpr=1.3&pid=1.7' alt='prf pic'></img>
+      }
+
+      {
+        !(currentUser?.isprofileImageSet) && 
+      <img src={Demoprf} alt='prf pic'></img>
+      }
+
       <span>{currentUser?.name}</span>
       </div>
         <div className='chatIcons'>
@@ -71,7 +81,7 @@ const Chat = () => {
           <FiMoreHorizontal size={20}/>
         </div>
       </div>
-      <Messages />
+      <Messages currentUser={currentUser}/>
       <Input />
     </div>
   )

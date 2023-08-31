@@ -1,17 +1,17 @@
 import React from 'react'
 import Message from './Message';
-const Messages = () => {
+const Messages = ({currentUser}) => {
   // const owner=true;
   // const other=false;
   return (
     <div className='message_container'>
-      <Message />
-      <Message />
-      <Message />
-      <Message />
-      <Message />
-      <Message />
-      <Message />
+      <Message currentUser={currentUser} />
+      <Message currentUser={currentUser} />
+      <Message currentUser={currentUser} />
+      <Message currentUser={currentUser} />
+      <Message currentUser={currentUser} />
+      <Message currentUser={currentUser} />
+      <Message currentUser={currentUser} />
     </div>
   )
 }

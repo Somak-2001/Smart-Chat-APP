@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { allUsersRoute } from '../utils/APIRoutes';
 import { useUserContext } from '../provider/UserContextProvider';
+import { toast } from 'react-hot-toast';
 const Sidebar = () => {
   const navigate = useNavigate();
   const {currentUser,contacts,setContacts} = useUserContext();
@@ -25,8 +26,18 @@ const Sidebar = () => {
   useEffect(() => {
     const unsub = async () => {
       if (currentUser) {
-        const data = await axios.get(`${allUsersRoute}/${currentUser._id}`);
-        setContacts(data.data);
+        const { data }= await axios.get(`${allUsersRoute}/${currentUser._id}`)
+        .then(()=>{
+          console.log("Contacts Saved Successfully");
+          data.map((item)=>{
+            if(!contacts?.includes(item)){
+              setContacts([...contacts,item]);
+            }
+          })
+        })
+        .catch((err)=>{
+          toast.error(err);
+        });
       }
       else {
         navigate('/login');

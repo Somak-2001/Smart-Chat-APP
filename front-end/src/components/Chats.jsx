@@ -11,11 +11,11 @@ const Chats = () => {
   return (
     <div className='chats'>
       {//Display all users at sidebar who ar,setregsitered in SmartApp
-        console.log(contacts)
+        {/* console.log(contacts) */}
       }
-      {contacts.map((item, idx) => {
+      {(contacts.length > 0) && contacts.map((item, idx) => {
         return (
-          <div className='find_user' onClick={() => { selectedContact(item, idx) }}>
+          <div className='find_user' key={item._id} onClick={() => { selectedContact(item, idx) }}>
             !(item.isprofileImageSet) && <img src={Demoprf} alt='Find contact' className='img_find_user'></img>
             (item.isprofileImageSet) && <img src={item.
               profileImage} alt='Find contact' className='img_find_user'></img>

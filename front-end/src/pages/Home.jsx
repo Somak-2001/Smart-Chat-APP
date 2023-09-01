@@ -1,16 +1,14 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef } from 'react'
 import Login from './Login';
 import Sidebar from '../components/Sidebar';
 import Chat from '../components/Chat';
 import '../styles/Home.scss';
 import { useNavigate } from 'react-router-dom';
-import { useUserContext } from '../context/UserContextProvider';
+import { useUserContext } from '../provider/UserContextProvider';
 const Home = () => {
   const navigate = useNavigate();
   const socket = useRef();
-  const [contacts, setContacts] = useState([]);
-  const [currentChat, setCurrentChat] = useState(null);
-  const [ currentUser, setCurrentUser ] = useState(null);
+  const {currentUser,setCurrentUser} = useUserContext();
 
   useEffect(() => {
     const unsub = async () => {
@@ -29,11 +27,15 @@ const Home = () => {
 
   return (
     <>
+    {/* Hello
+    <div>
+      <span>How are you</span>
+    </div> */}
       {!currentUser && <Login/>}
       {currentUser && <div className='home'>
         <div className='main_container'>
           <Sidebar />
-          <Chat />
+          <Chat/>
         </div>
       </div>}
     </>

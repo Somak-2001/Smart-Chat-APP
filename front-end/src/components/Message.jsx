@@ -1,7 +1,9 @@
 import React from 'react';
 import Image from '../images/prf.jpg';
 import Demoprf from '../assets/demoprf.png';
-const Message = ({currentUser}) => {
+import { useUserContext } from '../provider/UserContextProvider';
+const Message = () => {
+  const {currentUser} = useUserContext();
   return (
     <div className='message owner'>
       <div className='messageInfo'>

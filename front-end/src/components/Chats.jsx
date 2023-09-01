@@ -1,40 +1,31 @@
 import React from 'react';
-
+import Demoprf from '../assets/demoprf.png';
+import { useUserContext } from '../provider/UserContextProvider';
 const Chats = () => {
+  const { contacts, setCurrentChat } = useUserContext();
+  const selectedContact = (item, idx) => {
+    if (item) {
+      setCurrentChat(item);
+    }
+  }
   return (
     <div className='chats'>
-    {/* user 1 */}
-      <div className='find_user'>
-       <img src='https://th.bing.com/th/id/OIP.2svrXiC54e3ETDqB15I74wHaDt?w=329&h=174&c=7&r=0&o=5&dpr=1.3&pid=1.7' alt='Find contact' className='img_find_user'></img>
-       <div className='user_info'>
-       <p className='name'>Jane Foster</p>
-       <span className='message'>Hello</span>
-       </div>
-      </div>
-      {/* user 2 */}
-      <div className='find_user'>
-       <img src='https://th.bing.com/th/id/OIP.2svrXiC54e3ETDqB15I74wHaDt?w=329&h=174&c=7&r=0&o=5&dpr=1.3&pid=1.7' alt='Find contact' className='img_find_user'></img>
-       <div className='user_info'>
-       <p className='name'>Jane Foster</p>
-       <span className='message'>Hello</span>
-       </div>
-      </div>
-      {/* user 3 */}
-      <div className='find_user'>
-       <img src='https://th.bing.com/th/id/OIP.2svrXiC54e3ETDqB15I74wHaDt?w=329&h=174&c=7&r=0&o=5&dpr=1.3&pid=1.7' alt='Find contact' className='img_find_user'></img>
-       <div className='user_info'>
-       <p className='name'>Jane Foster</p>
-       <span className='message'>Hello</span>
-       </div>
-      </div>
-      {/* user 4 */}
-      <div className='find_user'>
-       <img src='https://th.bing.com/th/id/OIP.2svrXiC54e3ETDqB15I74wHaDt?w=329&h=174&c=7&r=0&o=5&dpr=1.3&pid=1.7' alt='Find contact' className='img_find_user'></img>
-       <div className='user_info'>
-       <p className='name'>Jane Foster</p>
-       <span className='message'>Hello</span>
-       </div>
-      </div>
+      {//Display all users at sidebar who ar,setregsitered in SmartApp
+        console.log(contacts)
+      }
+      {contacts.map((item, idx) => {
+        return (
+          <div className='find_user' onClick={() => { selectedContact(item, idx) }}>
+            !(item.isprofileImageSet) && <img src={Demoprf} alt='Find contact' className='img_find_user'></img>
+            (item.isprofileImageSet) && <img src={item.
+              profileImage} alt='Find contact' className='img_find_user'></img>
+            <div className='user_info'>
+              <p className='name'>{item.name}</p>
+              <span className='message'>Hello</span>
+            </div>
+          </div>
+        )
+      })}
     </div>
   )
 }

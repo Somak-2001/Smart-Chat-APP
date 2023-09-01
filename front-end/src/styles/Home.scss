@@ -166,6 +166,31 @@
         .chat_container {
             flex: 2;
 
+            .welcome-page{
+                padding: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: cadetblue;
+                height: 100%;
+                img{
+                    height: 400px;
+                    width: 400px;
+                }
+                .context{
+                   display: flex;
+                   flex-direction: column;
+                   position: relative;
+                   bottom: 50%;
+                    h2{
+                        text-align: center;
+                    }
+                    // span{
+                        
+                    // }
+                }
+            }
+
             .chatInfo {
                 .contactInfo{
                     display: flex;

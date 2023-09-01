@@ -1,17 +1,17 @@
 import React from 'react'
 import Message from './Message';
-const Messages = ({currentUser}) => {
-  // const owner=true;
-  // const other=false;
+import { useUserContext } from '../provider/UserContextProvider';
+const Messages = () => {
+  const {currentUser} = useUserContext();
   return (
     <div className='message_container'>
-      <Message currentUser={currentUser} />
-      <Message currentUser={currentUser} />
-      <Message currentUser={currentUser} />
-      <Message currentUser={currentUser} />
-      <Message currentUser={currentUser} />
-      <Message currentUser={currentUser} />
-      <Message currentUser={currentUser} />
+      <Message />
+      <Message />
+      <Message />
+      <Message />
+      <Message />
+      <Message />
+      <Message />
     </div>
   )
 }

@@ -41,21 +41,18 @@ const Chat = () => {
   //   }
   // }, [currentUser]);
 
-  useEffect(() => {
-    const unsub = async () => {
-      if (currentUser) {
-        const data = await axios.get(`${allUsersRoute}/${currentUser._id}`);
-        setContacts(data.data);
-      }
-      else {
-        navigate('/login');
-      }
-    }
-    return () => {
-      unsub();
-    }
-
-  }, [currentUser]);
+  // useEffect(() => {
+  //     if (currentUser) {
+  //       axios.get(`${allUsersRoute}/${currentUser._id}`)
+  //       .then((data)=>{
+  //         // setContacts(data.data);
+  //         console.log(data.data);
+  //       });
+  //     }
+  //     else {
+  //       navigate('/login');
+  //     }
+  //   }, [currentUser]);
 
   return (
     <div className='chat_container'>

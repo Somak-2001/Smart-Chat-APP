@@ -8,22 +8,23 @@ const Chats = () => {
       setCurrentChat(item);
     }
   }
+  console.log(contacts);
   return (
     <div className='chats'>
-      {//Display all users at sidebar who ar,setregsitered in SmartApp
-        {/* console.log(contacts) */}
-      }
-      {(contacts.length > 0) && contacts.map((item, idx) => {
+      {/*Display all users at sidebar who ar,setregsitered in SmartApp
+      */}
+      {contacts && contacts.map((item, idx) => {
         return (
+          <>
           <div className='find_user' key={item._id} onClick={() => { selectedContact(item, idx) }}>
             !(item.isprofileImageSet) && <img src={Demoprf} alt='Find contact' className='img_find_user'></img>
-            (item.isprofileImageSet) && <img src={item.
-              profileImage} alt='Find contact' className='img_find_user'></img>
+            (item.isprofileImageSet) && <img src={item.profileImage} alt='Find contact' className='img_find_user'></img>
             <div className='user_info'>
               <p className='name'>{item.name}</p>
               <span className='message'>Hello</span>
             </div>
           </div>
+          </>
         )
       })}
     </div>

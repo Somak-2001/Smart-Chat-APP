@@ -14,7 +14,7 @@ const Login = () => {
   // const currentUser = 
   useEffect(() => {
     if (JSON.parse(localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY))) {
-      navigate("/");
+      // navigate("/");
     }
   }, []);
 

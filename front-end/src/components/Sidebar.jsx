@@ -24,16 +24,15 @@ const Sidebar = () => {
   // },[]);
 
   useEffect(() => {
-    const unsub = async () => {
       if (currentUser) {
-        const { data }= await axios.get(`${allUsersRoute}/${currentUser._id}`)
-        .then(()=>{
-          console.log("Contacts Saved Successfully");
-          data.map((item)=>{
-            if(!contacts?.includes(item)){
-              setContacts([...contacts,item]);
-            }
-          })
+        axios.get(`${allUsersRoute}/${currentUser._id}`)
+        .then((data)=>{
+          // data.map((item)=>{
+          //   if(!contacts.includes(item)){
+          //     setContacts([...contacts,item]);
+          //   }
+          // })
+          setContacts(data.data);
         })
         .catch((err)=>{
           toast.error(err);
@@ -42,10 +41,6 @@ const Sidebar = () => {
       else {
         navigate('/login');
       }
-    }
-    return () => {
-      unsub();
-    }
 
   }, [currentUser]);
   return (

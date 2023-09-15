@@ -11,19 +11,16 @@ const Home = () => {
   const {currentUser,setCurrentUser} = useUserContext();
 
   useEffect(() => {
-    const unsub = async () => {
-      const user = await JSON.parse(localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY));
+    console.log("Hello");
+      const user = JSON.parse(localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY));
+      console.log(user);
       if (!user) {
         navigate('/login');
       }
       else {
         setCurrentUser(user);
       }
-    }
-    return () => {
-      unsub();
-    }
-  }, [currentUser])
+  }, [])
 
   return (
     <>
@@ -34,6 +31,7 @@ const Home = () => {
       {!currentUser && <Login/>}
       {currentUser && <div className='home'>
         <div className='main_container'>
+        {/* <h1>Hello World</h1> */}
           <Sidebar />
           <Chat/>
         </div>
